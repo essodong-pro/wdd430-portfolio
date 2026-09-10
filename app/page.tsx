@@ -1,30 +1,40 @@
-import ProjectList from '@/components/ProjectList';
-const projects = [
-  {
-    title: 'Sleep Outside',
-    description: 'A Website for managing products.',
-    technologies: ['HTML', 'JavaScript', 'CSS'],
-    link: 'https://github.com/zidreynkounkou-pro/wdd330-sleep-outside'
-  },
-  {
-    title: 'The Movie & TV Hub',
-    description: 'A Website that fetches and displays Movies.',
-    technologies: ['HTML', 'JavaScript', 'CSS'],
-    link: 'https://github.com/essodong-pro/wdd330'
-  }
-];
+import Image from 'next/image';
+
 export default function Home() {
   return (
-    <main className="container mx-auto px-4 py-12">
-      <section className="text-center py-12">
-        <h1 className="text-4xl font-bold mb-4">My Portfolio</h1>
-        <p className="text-lg text-gray-700 max-w-xl mx-auto">
-          I'm a full-stack developer learning Next.js and React. Here are some of my recent projects.
-        </p>
-      </section>
+    <main className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="max-w-sm w-full bg-white rounded-2xl shadow-xl overflow-hidden p-8 text-center transition-transform duration-300 hover:scale-105">
 
-      <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>
-      <ProjectList projects={projects} />
+        {/* Profile Image */}
+        <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-md">
+          <Image
+            src="/profile.jpg"
+            alt="Profile Picture"
+            width={128}
+            height={128}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+            priority
+          />
+        </div>
+
+        {/* Heading */}
+        <h1 className="text-3xl font-bold text-brand mb-3">Tailwind CSS Practice</h1>
+
+        {/* Description Paragraph */}
+        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          Tailwind CSS is a utility-first CSS framework packed with classes that can be composed to build any design, directly in your markup.
+        </p>
+
+        {/* Optional Action Link */}
+        <a
+          href="https://tailwindcss.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-5 py-2.5 bg-brand text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition-colors"
+        >
+          Learn More
+        </a>
+      </div>
     </main>
   );
 }
