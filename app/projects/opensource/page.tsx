@@ -1,13 +1,7 @@
-import { Project } from '@/lib/projects-db';
+import { getProjects, Project } from '@/lib/projects-db';
 
 async function getOpenSourceProjects(): Promise<Project[]> {
-    const res = await fetch('http://localhost:3000/api/projects?type=opensource', {
-        cache: 'no-store',
-    });
-    if (!res.ok) {
-        throw new Error('Failed to fetch open source projects');
-    }
-    return res.json();
+    return getProjects('opensource');
 }
 
 export default async function OpenSourcePage() {

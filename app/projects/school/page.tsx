@@ -1,13 +1,7 @@
-import { Project } from '@/lib/projects-db';
+import { getProjects, Project } from '@/lib/projects-db';
 
 async function getSchoolProjects(): Promise<Project[]> {
-    const res = await fetch('http://localhost:3000/api/projects?type=school', {
-        cache: 'no-store',
-    });
-    if (!res.ok) {
-        throw new Error('Failed to fetch school projects');
-    }
-    return res.json();
+    return getProjects('school');
 }
 
 export default async function SchoolProjectsPage() {
